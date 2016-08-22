@@ -34,9 +34,3 @@ The navigation menu a model to represent each item in the navigation menu. The o
 Contains a template which extends the common base template, and styling specific for the home page.
 
 ### Faqs.
-
-
-
-### Database.
-
-Currently all models are registered with the django admin.
