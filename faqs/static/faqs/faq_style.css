@@ -1,0 +1,25 @@
+.sidebar ul {
+  list-style-type: none;
+}
+.sidebar > ul {
+  padding-top: 20px;
+}
+.sidebar li {
+  padding-bottom: 5px;
+}
+.sidebar .category > a {
+  color: #431F73;
+  font-weight: bold;
+}
+.sidebar .category > a:hover {
+  color: #AD85E6;
+}
+.sidebar .faq {
+  font-size: 15px;
+}
+.sidebar .faq a {
+  color: inherit;
+}
+.sidebar .faq > a:hover {
+  color: #3C1472;
+}

@@ -1,0 +1,43 @@
+{% extends "common/base.html" %}
+{% load static %}
+
+{% block aditional_stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'faqs/faq_style.css' %}">
+{% endblock %}
+
+{% block subheader_content %}
+<a href="{% url 'faqs' %}">Frequently Asked Questions <small>(and answers).</small></a>
+{% endblock %}
+
+{% block sidebar %}
+<h2>Jump to...</h2>
+
+<ul>
+{% for category in faq_categories %}
+  <li class=category>
+    <a href="#{{ category.display_text }}">{{ category.display_text }}</a>
+    <ul>
+    {% for faq in category.faqs %}
+      <li class="faq child-section"><a href="#{{ category.display_text }}:{{ faq.question_text }}">{{ faq.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+{% block main_content %}
+{% for category in faq_categories %}
+  <section id="{{ category.display_text }}" class="stacked-section-category">
+    <h1>{{ category.display_text }}</h1>
+    {% for faq in category.faqs %}
+    <section id="{{ category.display_text }}:{{ faq.question_text }}" class="stacked-section-no-thumnail child-section">
+      <h3>{{ faq.question_text }}</h3>
+      <div class="answer">
+        {{ faq.answer_text|safe }}
+      </div>
+    </section>
+    {% endfor %}
+  </section>
+{% endfor %}
+{% endblock %}

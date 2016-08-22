@@ -1,0 +1,22 @@
+{% extends "common/base.html" %}
+
+{% load staticfiles %}
+
+{% block aditional_stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'about/about_style.css' %}">
+{% endblock %}
+
+{% block subheader_content %}
+<a href="{% url 'about' %}">Who is Moldy Company Inc.?</a>
+{% endblock %}
+
+{% block main_content %}
+{% for section in sections %}
+<section class="stacked-section-no-thumnail">
+  <h3>{{ section.title }}</h3>
+  <div class="content">
+    {{ section.body_markdown|safe }}
+  </div>
+</section>
+{% endfor %}
+{% endblock %}
