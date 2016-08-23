@@ -18,7 +18,7 @@ the project's base directory and run the command
     Starting development server at http://127.0.0.1:8000/
     Quit the server with CONTROL-C.
 
-This will start the Django testserver, simply open your browser and navigate to
+This will start the Django test server, simply open your browser and navigate to
 http://127.0.0.1:8000/ (if it is different, use that instead).
 
 Have fun exploring!
