@@ -1,8 +1,31 @@
 # moldyWebsite
 
-Working on a website for a molding company.
+Working on a website for a molding/manufacturing company using Django.
 
-# documentation
+
+
+# Getting started.
+
+The easiest way to get started is to clone this repo, open a terminal, navigate to
+the project's base directory and run the command
+
+    $ python manage.py runserver
+    Performing system checks...
+
+    System check identified no issues (0 silenced).
+    August 22, 2016 - 18:55:55
+    Django version 1.9.9, using settings 'moldyWebsite.settings'
+    Starting development server at http://127.0.0.1:8000/
+    Quit the server with CONTROL-C.
+
+This will start the Django testserver, simply open your browser and navigate to
+http://127.0.0.1:8000/ (if it is different, use that instead).
+
+Have fun exploring!
+
+
+
+# Documentation.
 
 ### What is this?
 
