@@ -1,4 +1,4 @@
-from .models import FaqOld, FaqCategory
+from .models import Faq, FaqCategory
 from common.views import basicPage
 
 def index(request):
@@ -6,7 +6,7 @@ def index(request):
     for category in FaqCategory.objects.all():
         faq_categories.append({
             'display_text': category.display_text,
-            'faqs': FaqOld.objects.filter(category__display_text=category.display_text)
+            'faqs': Faq.objects.filter(category=category)
             })
     context = {
         'faq_categories': faq_categories

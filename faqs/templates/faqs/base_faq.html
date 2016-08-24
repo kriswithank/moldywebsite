@@ -18,7 +18,7 @@
     <a href="#{{ category.display_text }}">{{ category.display_text }}</a>
     <ul>
     {% for faq in category.faqs %}
-      <li class="faq child-section"><a href="#{{ category.display_text }}:{{ faq.question_text }}">{{ faq.question_text }}</a></li>
+      <li class="faq child-section"><a href="#{{ category.display_text }}:{{ faq.title }}">{{ faq.question_text }}</a></li>
     {% endfor %}
     </ul>
   </li>
@@ -31,10 +31,10 @@
   <section id="{{ category.display_text }}" class="stacked-section-category">
     <h1>{{ category.display_text }}</h1>
     {% for faq in category.faqs %}
-    <section id="{{ category.display_text }}:{{ faq.question_text }}" class="stacked-section-no-thumnail child-section">
-      <h3>{{ faq.question_text }}</h3>
+    <section id="{{ category.display_text }}:{{ faq.title }}" class="stacked-section-no-thumnail child-section">
+      <h3>{{ faq.title }}</h3>
       <div class="answer">
-        {{ faq.answer_text|safe }}
+        {{ faq.body_markdown|safe }}
       </div>
     </section>
     {% endfor %}
