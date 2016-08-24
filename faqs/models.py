@@ -45,30 +45,3 @@ class Faq(TitledBasicPost):
     """
     position = models.PositiveIntegerField()
     category = models.ForeignKey(FaqCategory, on_delete=models.DO_NOTHING, default=DEFAULT_FAQ_CATEGORY)
-
-
-
-
-
-class FaqOld(models.Model):
-    """
-    A class model for a frequently asked question.
-
-    Attributes:
-        position - Determines the order in which to display the faqs on the page.
-                   The faq with the lowest position value should be the first displayed,
-                   largest position value should be the last displayed.
-
-        question_text - The frequently asked question.
-
-        answer_text - The answer to the frequently asked question.
-
-        category - The FaqCategory to which the faq belongs to.
-    """
-    position = models.PositiveIntegerField()
-    question_text = models.CharField(max_length=250)
-    answer_text = RichTextField()
-    category = models.ForeignKey(FaqCategory, on_delete=models.DO_NOTHING, default=DEFAULT_FAQ_CATEGORY)
-
-    def __str__(self):
-        return self.question_text
