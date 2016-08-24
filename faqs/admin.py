@@ -1,8 +1,8 @@
-from .models import Faq, FaqCategory
+from .models import FaqOld, FaqCategory
 from django.contrib import admin
 
-class FaqsInline(admin.StackedInline):
-    model = Faq
+class FaqsOldInline(admin.StackedInline):
+    model = FaqOld
     extra = 1
     ordering = ['position', 'question_text']
 
@@ -11,7 +11,7 @@ class FaqCategoryAdmin(admin.ModelAdmin):
     list_display = ('position', 'display_text')
     list_display_links = ('display_text',)
     list_editable = ('position',)
-    inlines = [FaqsInline]
+    inlines = [FaqsOldInline]
     ordering = ['position', 'display_text']
 
 admin.site.register(FaqCategory, FaqCategoryAdmin)

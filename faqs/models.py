@@ -31,7 +31,7 @@ class FaqCategory(models.Model):
 
 
 
-class Faq(models.Model):
+class FaqOld(models.Model):
     """
     A class model for a frequently asked question.
 
