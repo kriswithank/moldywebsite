@@ -47,7 +47,7 @@ class BasicPost(models.Model):
         """
         image_refs = ""
 
-        for image in self.image_set.all():
+        for image in self.postimage_set.all():
             image_url = image.image.url
             image_refs += '\n[{0}]: {1}'.format(image.name, image_url)
 
@@ -57,3 +57,6 @@ class BasicPost(models.Model):
 
 class TitledBasicPost(BasicPost):
     title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
