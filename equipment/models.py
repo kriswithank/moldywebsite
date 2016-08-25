@@ -25,8 +25,7 @@ class Equipment(models.Model):
     thumbnail = models.ImageField(upload_to="images/thumbnails")
 
 
-
-class EquipmentGalleryImage(Image):
+class EquipmentGalleryImage(models.Model):
     """
     A class model for an image which is a part of the gallery of a piece of equipment.
 
@@ -35,10 +34,11 @@ class EquipmentGalleryImage(Image):
                    with the lowest position value should be the first displayed,
                    largest position value should be the last displayed.
 
-        gallery_subject - The piece of equipment to which the image belongs.
+        parent - The piece of equipment to which the image belongs.
     """
     position = models.PositiveIntegerField()
-    gallery_subject = models.ForeignKey(Equipment, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="image")
+    parent = models.ForeignKey(Equipment, on_delete=models.CASCADE)
 
 
 
