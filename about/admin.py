@@ -1,9 +1,9 @@
 from .models import AboutSection
-from common.admin import ImageInline
+from common.admin import PostImageInline
 from django.contrib import admin
 
 class AboutSectionAdmin(admin.ModelAdmin):
     fields = ['title', 'position', 'body_markdown']
-    inlines = [ImageInline]
+    inlines = [PostImageInline]
 
 admin.site.register(AboutSection, AboutSectionAdmin)

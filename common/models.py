@@ -29,7 +29,7 @@ class NavMenuItem(models.Model):
 
 
 
-class Image(models.Model):
+class PostImage(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to="image")
     parent = models.ForeignKey('BasicPost', on_delete=models.CASCADE, null=True)

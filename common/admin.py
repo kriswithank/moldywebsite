@@ -1,4 +1,4 @@
-from .models import BasicPost, TitledBasicPost, Image, NavMenuItem
+from .models import BasicPost, TitledBasicPost, PostImage, NavMenuItem
 from django.contrib import admin
 
 class NavMenuItemAdmin(admin.ModelAdmin):
@@ -10,16 +10,16 @@ class NavMenuItemAdmin(admin.ModelAdmin):
 
 
 
-class ImageInline(admin.TabularInline):
-    model = Image
+class PostImageInline(admin.TabularInline):
+    model = PostImage
     extra = 1
 
 class BasicPostAdmin(admin.ModelAdmin):
-    inlines = [ImageInline]
+    inlines = [PostImageInline]
 
 class TitledBasicPostAdmin(admin.ModelAdmin):
     fields = ('title', 'body_markdown')
-    inlines = [ImageInline]
+    inlines = [PostImageInline]
 
 
 

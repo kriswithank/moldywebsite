@@ -1,4 +1,4 @@
-from common.models import Image, TitledBasicPost
+from common.models import TitledBasicPost
 from django.db import models
 
 
