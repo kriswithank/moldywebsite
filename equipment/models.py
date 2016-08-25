@@ -16,16 +16,12 @@ class Equipment(models.Model):
         description_brief - A brief description to display with a thumbnail for the
                             overview.
 
-        description_long - The expanded post about the equipment and what it can do,
-                           should have multiple sections
-
         thumbnail - The image to display with description_brief, also good for use in
                     a header on the detail page.
     """
     position = models.PositiveIntegerField()
     name = models.CharField(max_length=200)
     description_brief = models.CharField(max_length=1500)
-    description_long = models.ForeignKey(TitledBasicPost, on_delete=models.CASCADE)
     thumbnail = models.ImageField(upload_to="images/thumbnails")
 
 
@@ -43,3 +39,19 @@ class EquipmentGalleryImage(Image):
     """
     position = models.PositiveIntegerField()
     gallery_subject = models.ForeignKey(Equipment, on_delete=models.CASCADE)
+
+
+
+class EquipmentLongDescriptionSection(TitledBasicPost):
+    """
+    A clone of a titled basic post, used so that a reverse relationship could be used.
+
+    Attributes:
+        position - Determines the order in which to display on the page. The equipment
+                   with the lowest position value should be the first displayed,
+                   largest position value should be the last displayed.
+
+        parent - The piece of equipment to which the image belongs.
+    """
+    position = models.PositiveIntegerField()
+    parent = models.ForeignKey(Equipment, on_delete=models.CASCADE)
