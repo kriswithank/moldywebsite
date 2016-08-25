@@ -1,7 +1,5 @@
 from common.models import TitledBasicPost
 from django.db import models
-from ckeditor.fields import RichTextField
-
 
 
 DEFAULT_FAQ_CATEGORY = 1
