@@ -20,8 +20,6 @@ def basicPage(request, template_name, additional_context):
     """
     context = {
         'nav_item_list': NavMenuItem.objects.order_by('position'),
-        'temp_post_header': TitledBasicPost.objects.get(id=2).title,
-        'temp_post_body': TitledBasicPost.objects.get(id=2).body_html(),
     }
     context.update(additional_context)  # Add additional items.
     return render(request, template_name, context)
