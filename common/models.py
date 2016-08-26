@@ -38,8 +38,9 @@ class PostImage(models.Model):
 
 class BasicPost(models.Model):
     body_markdown = models.TextField()
+    body_html = models.TextField()
 
-    def body_html(self):
+    def convert_markdown(self):
         """
         Converts the body_markdown to html. This code is a modified version of
         Ole Morten Halvorsen's implementation, found here:
@@ -52,6 +53,10 @@ class BasicPost(models.Model):
             image_refs += '\n[{0}]: {1}'.format(image.name, image_url)
 
         return markdown.markdown('{0}\n{1}'.format(self.body_markdown, image_refs))
+
+    def save(self):
+        self.body_html = self.convert_markdown()
+        super(BasicPost, self).save()
 
 
 
