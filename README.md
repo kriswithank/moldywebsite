@@ -6,6 +6,12 @@ Working on a website for a molding/manufacturing company using Django.
 
 # Getting started.
 
+First install the required pip modules:
+ * django
+ * psycopg2
+ * markdown
+
+
 The easiest way to get started is to clone this repo, open a terminal, navigate to
 the project's base directory and run the command
 
@@ -24,6 +30,19 @@ http://127.0.0.1:8000/ (if it is different, use that instead).
 Have fun exploring!
 
 
+
+# Setting up PostgreSQL database.
+
+### Setting up website_user
+
+To create website_user with appropriate permissions...
+    createuser website_user -P
+
+To grant user permissions on database and tables...
+    $ psql
+    kris=# GRANT ALL PRIVILEGES ON DATABASE moldywebsite TO website_user;
+    kris=# \c moldywebsite
+    kris=# GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO website_user;
 
 # Documentation.
 
