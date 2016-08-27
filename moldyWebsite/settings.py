@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'moldywebsite',
-        'USER': 'kris',
-        'PASSWORD': '',
+        'USER': 'website_user',
+        'PASSWORD': 'JumpingBird33',
         'HOST': 'localhost',
         'PORT': '',
     }
