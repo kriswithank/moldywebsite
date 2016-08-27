@@ -10,6 +10,7 @@ First install the required pip modules:
  * django
  * psycopg2
  * markdown
+ * pillow
 
 
 The easiest way to get started is to clone this repo, open a terminal, navigate to
