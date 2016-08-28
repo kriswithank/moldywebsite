@@ -9,6 +9,7 @@ Working on a website for a molding/manufacturing company using Django.
 First install the required pip modules:
  * django
  * psycopg2
+ * pillow
  * markdown
  * pillow
 
@@ -37,9 +38,11 @@ Have fun exploring!
 ### Setting up website_user
 
 To create website_user with appropriate permissions...
+
     createuser website_user -P
 
 To grant user permissions on database and tables...
+
     $ psql
     kris=# GRANT ALL PRIVILEGES ON DATABASE moldywebsite TO website_user;
     kris=# \c moldywebsite
@@ -77,3 +80,29 @@ The navigation menu a model to represent each item in the navigation menu. The o
 Contains a template which extends the common base template, and styling specific for the home page.
 
 ### Faqs.
+
+
+
+# Notes to myself about deployment.
+I used gunicorn and nginx for deployment.
+
+I used a gunicorn daemon for autostarting it. This daemon is located at
+'/etc/systemd/system/gunicorn.service'
+
+The nginx configuration file is located at '/etc/nginx/sites-available/moldywebsite',
+to enable it to work a symbolic link is the only file in '/etc/nginx/sites-enabled/'
+
+To check nginx config for error, run
+
+    $ sudo nginx -t
+
+To start the nginx server, run
+
+    $ sudo systemctl restart nginx
+
+To restart the gunicorn daemmon, run
+
+    $ sudo systemctl start gunicorn
+    $ sudo systemctl enable gunicorn
+
+Whenever you make a change to the website, restart the gunicorn daemon.
