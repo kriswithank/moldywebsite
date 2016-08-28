@@ -106,3 +106,42 @@ To restart the gunicorn daemmon, run
     $ sudo systemctl enable gunicorn
 
 Whenever you make a change to the website, restart the gunicorn daemon.
+
+
+# Collecting static files
+
+When deploying, collect the static files, to do this enable the virtual environment
+
+    $ source /home/kris/website/website_env/bin/activate
+
+and collect the static files
+
+    $ cd /home/kris/website/moldywebsite/
+    $ ./manage.py collectstatic
+
+
+# Transfering database to server
+
+First dump the local database
+
+    $ pg_dump database_name > db_dump.sql
+
+where database_name is the name of the database (moldywebsite).
+
+Then transfer the sql dump to the server
+
+    $ scp db_dump.sql kris@krisswann.com:
+
+This puts it in /home/kris on the server.
+
+Now ssh into the server and drop the old db.
+
+    kris@krisswann.com~$ dropdb moldywebsite
+
+Create a new, empty database
+
+    kris@krisswann.com~$ createdb moldywebsite
+
+Populate it with the sql dump
+
+    kris@krisswann.com:~$ psql -d moldywebsite  -f db_dump.sql
