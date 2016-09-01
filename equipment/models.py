@@ -1,4 +1,4 @@
-from common.models import TitledBasicPost
+from common.models import BasicPost
 from django.db import models
 
 
@@ -24,6 +24,9 @@ class Equipment(models.Model):
     description_brief = models.CharField(max_length=1500)
     thumbnail = models.ImageField(upload_to="images/thumbnails")
 
+    def __str__(self):
+        return self.name
+
 
 class EquipmentGalleryImage(models.Model):
     """
@@ -42,7 +45,7 @@ class EquipmentGalleryImage(models.Model):
 
 
 
-class EquipmentLongDescriptionSection(TitledBasicPost):
+class EquipmentLongDescription(BasicPost):
     """
     A clone of a titled basic post, used so that a reverse relationship could be used.
 
@@ -53,5 +56,4 @@ class EquipmentLongDescriptionSection(TitledBasicPost):
 
         parent - The piece of equipment to which the image belongs.
     """
-    position = models.PositiveIntegerField()
     parent = models.ForeignKey(Equipment, on_delete=models.CASCADE)

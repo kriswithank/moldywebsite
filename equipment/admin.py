@@ -1,4 +1,4 @@
-from .models import Equipment, EquipmentGalleryImage, EquipmentLongDescriptionSection
+from .models import Equipment, EquipmentGalleryImage, EquipmentLongDescription
 from common.models import BasicPost
 from django.contrib import admin
 
@@ -8,8 +8,9 @@ class GalleryImageInline(admin.StackedInline):
     extra = 1
 
 class LongDescriptionInline(admin.StackedInline):
-    model = EquipmentLongDescriptionSection
-    extra = 1
+    model = EquipmentLongDescription
+    fields = ['body_markdown']
+    max_num = 1
 
 
 class EquipmentAdmin(admin.ModelAdmin):
