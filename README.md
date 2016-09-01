@@ -11,7 +11,6 @@ First install the required pip modules:
  * psycopg2
  * pillow
  * markdown
- * pillow
 
 
 The easiest way to get started is to clone this repo, open a terminal, navigate to
@@ -37,7 +36,7 @@ Have fun exploring!
 
 ### Setting up website_user
 
-To create website_user with appropriate permissions...
+To create website_user with appropriate permissions and a password...
 
     createuser website_user -P
 
