@@ -1,9 +1,26 @@
 {% extends "common/base.html" %}
+{% load static %}
+
+{% block aditional_stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'equipment/equipment_style.css' %}">
+{% endblock %}
 
 {% block subheader_content %}
 <a href="{% url 'equipment' %}">Look over our toys.</a>
 {% endblock %}
 
 {% block main_content %}
-Tonka trucks, books, dominoes, the list goes on.
+{% for obj in equipment %}
+  <div class="item">
+  <a href="">
+    <img class="thumbnail" src="{{ obj.thumbnail.url }}" alt="{{ obj.name }} Thumbnail"/>
+    <div class="content">
+      <h3 class="title">{{obj.name}}</h3>
+      <div class="overview">
+        {{obj.description_brief}}
+      </div>
+    </div>
+  </a>
+  </div>
+{% endfor %}
 {% endblock %}
