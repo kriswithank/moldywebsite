@@ -144,3 +144,9 @@ Create a new, empty database
 Populate it with the sql dump
 
     kris@krisswann.com:~$ psql -d moldywebsite  -f db_dump.sql
+
+To ensure website_user has the proper permissions run the following commands
+
+    kris@krisswann.com:~$ psql database -c "GRANT ALL ON ALL TABLES IN SCHEMA public to website_user;"
+    kris@krisswann.com:~$ psql database -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to website_user;"
+    kris@krisswann.com:~$ psql database -c "GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to website_user;"
