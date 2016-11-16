@@ -147,6 +147,6 @@ Populate it with the sql dump
 
 To ensure website_user has the proper permissions run the following commands
 
-    kris@krisswann.com:~$ psql database -c "GRANT ALL ON ALL TABLES IN SCHEMA public to website_user;"
-    kris@krisswann.com:~$ psql database -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to website_user;"
-    kris@krisswann.com:~$ psql database -c "GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to website_user;"
+    kris@krisswann.com:~$ psql moldywebsite -c "GRANT ALL ON ALL TABLES IN SCHEMA public to website_user;"
+    kris@krisswann.com:~$ psql moldywebsite -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to website_user;"
+    kris@krisswann.com:~$ psql moldywebsite -c "GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to website_user;"
