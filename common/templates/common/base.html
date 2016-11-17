@@ -6,7 +6,7 @@
 
 
   <head>
-    <title>{% block title %}Molds America LLC {% endblock %}</title>
+    <title>{% block title %}Molds America LLC{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
     <link rel="stylesheet" type="text/css" href="{% static 'common/style.css' %}">
@@ -21,7 +21,7 @@
   <body>
 
     <header>
-      <a class="logo noselect" href="{% url 'home' %}">Moldy Company Inc.</a>
+      <a class="logo noselect" href="{% url 'home' %}">Molds America LLC</a>
       <a class="menu-button" type="button" onclick="toggleMenu()"></a>
       <nav class="nav-menu mobile-menu-inactive">
         {% for item in nav_item_list %}
