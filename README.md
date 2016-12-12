@@ -1,36 +1,39 @@
 # moldyWebsite
 
-Working on a website for a molding/manufacturing company using Django.
+Working on a website for a molding/manufacturing company using the Django framework.
 
 
 
 # Getting started.
 
-First install the required pip modules:
- * django
- * psycopg2
- * pillow
- * markdown
+Make sure the following are installed on your machine:
 
+    * python
+    * pip
+    * virtualenv
 
-The easiest way to get started is to clone this repo, open a terminal, navigate to
-the project's base directory and run the command
+You should then be able to just clone this repository and execute the following commands to get a test
+server up and running. The website address should be displayed in the terminal after doing the following:
 
-    $ python manage.py runserver
+In a terminal, navigate to where this repo is, activate the python virtual environment, and run the test
+server. An example is shown below.
+
+    [user@mypc]$ cd /path/to/personalSite/
+    [user@mypc]$ source virtualenv/bin/activate
+    (virtualenv) [user@mypc]$ python manage.py runserver
     Performing system checks...
 
     System check identified no issues (0 silenced).
-    August 22, 2016 - 18:55:55
-    Django version 1.9.9, using settings 'moldyWebsite.settings'
+    December 11, 2016 - 20:30:17
+    Django version 1.10.4, using settings 'personalSite.settings'
     Starting development server at http://127.0.0.1:8000/
     Quit the server with CONTROL-C.
 
-This will start the Django test server, simply open your browser and navigate to
-http://127.0.0.1:8000/ (if it is different, use that instead).
+When you are finished running the server, press *CONTROL-C* to quit the development server and enter 
 
-Have fun exploring!
+    (virtualenv) [user@mypc]$ deactivate
 
-
+to exit the virtual environment.
 
 # Setting up PostgreSQL database.
 
