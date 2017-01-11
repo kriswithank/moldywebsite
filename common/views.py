@@ -1,4 +1,3 @@
-from common.models import TitledBasicPost, NavMenuItem
 from django.shortcuts import render
 
 
