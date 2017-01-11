@@ -1,4 +1,4 @@
-.item .thumbnail {
+img {
     display: inline-block;
     width: 30%;
 }
@@ -9,4 +9,7 @@
 }
 .item .content * {
     display: block;
+}
+.content {
+    text-align: left;
 }
