@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block subheader_content %}
-<a href="{% url 'products' %}">Look over our past work.</a>
+<a href="{% url 'products:index' %}">Look over our past work.</a>
 {% endblock %}
 
 {% block main_content %}
 {% for product in products %}
 <div class="item">
-<a href="">
+<a href="{% url 'products:detail' product.slug %}">
   <img class="thumbnail" src="{{ product.thumbnail.url }}" alt="{{ product.name }} Thumbnail"/>
   <div class="content">
     <h3 class="title">{{ product.name }}</h3>

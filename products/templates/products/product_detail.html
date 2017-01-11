@@ -1,0 +1,32 @@
+{% extends "common/base.html" %}
+{% load static %}
+
+{% block aditional_stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'products/products_style.css' %}">
+{% endblock %}
+
+{% block subheader_content %}
+<a href="{% url 'products:index' %}">Look over our past work.</a>
+{% endblock %}
+
+{% block main_content %}
+<h1 class="title">
+    {{ product.name }}
+</h1>
+
+<div>
+    {{ product.long_desc }}
+</div>
+
+<div class="gallery">
+    {% for image in product.productgalleryimage_set.all %}
+    <div class="entry">
+        <img src="{{ image.image.url }}" alt="{{ image.title }}">
+        <div class="caption">
+            <h5>{{ image.title }}</h5>
+            <div class="info">{{ image.info }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
