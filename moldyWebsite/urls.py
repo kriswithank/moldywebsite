@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    url(r'^$', RedirectView.as_view(url=reverse_lazy('home'), permanent=False)),
+    url(r'^$', RedirectView.as_view(url=reverse_lazy('home:index'), permanent=False)),
     url(r'^about/', include('about.urls')),
     url(r'^contact/', include('contact.urls')),
     url(r'^equipment/', include('equipment.urls')),
