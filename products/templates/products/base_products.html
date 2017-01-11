@@ -1,9 +1,26 @@
 {% extends "common/base.html" %}
+{% load static %}
+
+{% block aditional_stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'products/products_style.css' %}">
+{% endblock %}
 
 {% block subheader_content %}
-<a href="{% url 'products' %}">Look over our past work.</a>
+<a href="{% url 'products:index' %}">Look over our past work.</a>
 {% endblock %}
 
 {% block main_content %}
-The database has no cookies to show you.
+{% for product in products %}
+<div class="item">
+<a href="{% url 'products:detail' product.slug %}">
+  <img class="thumbnail" src="{{ product.thumbnail.url }}" alt="{{ product.name }} Thumbnail"/>
+  <div class="content">
+    <h3 class="title">{{ product.name }}</h3>
+    <div class="overview">
+      {{ product.short_desc }}
+    </div>
+  </div>
+</a>
+</div>
+{% endfor %}
 {% endblock %}

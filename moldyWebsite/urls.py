@@ -9,7 +9,6 @@ from contact.views import index as contact_index
 from equipment.views import index as equipment_index
 from faqs.views import index as faqs_idex
 from home.views import index as home_index
-from products.views import index as products_index
 from reference.views import index as reference_index
 
 urlpatterns = [
@@ -19,7 +18,7 @@ urlpatterns = [
     url(r'^equipment/$', equipment_index, name='equipment'),
     url(r'^faqs/$', faqs_idex, name='faqs'),
     url(r'^home/$', home_index, name='home'),
-    url(r'^products/$', products_index, name='products'),
+    url(r'^products/', include('products.urls')),
     url(r'^reference/$', reference_index, name='reference'),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

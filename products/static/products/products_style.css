@@ -1,0 +1,15 @@
+img {
+    display: inline-block;
+    width: 30%;
+}
+.item .content {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+}
+.item .content * {
+    display: block;
+}
+.content {
+    text-align: left;
+}
