@@ -1,11 +1,11 @@
 {% extends "common/base.html" %}
 
 {% block subheader_content %}
-<a href="{% url 'contact' %}">Have Questions? Contact Us.</a>
+<a href="{% url 'contact:index' %}">Have Questions? Contact Us.</a>
 {% endblock %}
 
 {% block main_content %}
-If our <a href="{% url "about" %}">about page</a> didn't have what you were looking for. Please
+If our <a href="{% url 'about:index' %}">about page</a> didn't have what you were looking for. Please
 feel free to drop us a line.
 
 info@moldsamerica.com

@@ -21,7 +21,7 @@
   <body>
 
     <header>
-      <a class="logo noselect" href="{% url 'home' %}">Molds America LLC</a>
+      <a class="logo noselect" href="{% url 'home:index' %}">Molds America LLC</a>
       <a class="menu-button" type="button" onclick="toggleMenu()"></a>
       <nav class="nav-menu mobile-menu-inactive">
         {% for item in nav_item_list %}
