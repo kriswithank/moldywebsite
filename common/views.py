@@ -1,4 +1,3 @@
-from common.models import TitledBasicPost, NavMenuItem
 from django.shortcuts import render
 
 
@@ -18,8 +17,6 @@ def basicPage(request, template_name, additional_context):
         context - Additional context for use in the template extension only. All context
                   required by base.html should already be inlcuded in this function.
     """
-    context = {
-        'nav_item_list': NavMenuItem.objects.order_by('position'),
-    }
+    context = {}
     context.update(additional_context)  # Add additional items.
     return render(request, template_name, context)

@@ -1,31 +1,5 @@
-from django.core.urlresolvers import reverse
-from django.conf import settings
 from django.db import models
 import markdown
-
-
-
-class NavMenuItem(models.Model):
-    """
-    A class model for navigation menu items. Each nav menu item should represent a single
-    navigation menu entry.
-
-    Attributes:
-        position - Determines the order in which to display the navigation menu items.
-                   The item with the lowest position value should be the first displayed,
-                   largest position value should be the last displayed.
-
-        display_text - The text which will be visible in the navigation menu.
-
-        reference_url_name - The name of the url which the navigation menu item references.
-                             This name should be in one of the url confs.
-    """
-    position = models.PositiveIntegerField()
-    display_text = models.CharField(max_length=25)
-    reference_url_name = models.CharField(max_length=75)
-
-    def __str__(self):
-        return self.display_text
 
 
 
