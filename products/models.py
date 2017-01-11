@@ -13,7 +13,7 @@ class Product(models.Model):
         short_desc - A short description to be displayed on the product index page.
         long_desc - A longer description that thoughly explains the project in depth.
                     Should be displayed on the project page.
-        completion_date - The date that the project was completed.
+        completion_date - The date that the project was completed. Null if unfinished.
         thumbnail - A thumbnail to be displayed on the product index page.
     """
     position = models.PositiveIntegerField()
@@ -21,7 +21,7 @@ class Product(models.Model):
     name = models.CharField(max_length=1000)
     short_desc = models.TextField()
     long_desc = models.TextField()
-    completion_date = models.DateField()
+    completion_date = models.DateField(null=True)
     thumbnail = models.ImageField(upload_to='products/images/thumbnails')
 
     class Meta:
