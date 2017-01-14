@@ -1,24 +1,17 @@
-from .models import BasicPost, TitledBasicPost, PostImage
+from .models import MarkdownImage, MarkdownModel
 from django.contrib import admin
 
 
 
-class PostImageInline(admin.TabularInline):
-    model = PostImage
+class MarkdownImageInline(admin.TabularInline):
+    model = MarkdownImage
     extra = 1
 
 
 
-class BasicPostAdmin(admin.ModelAdmin):
-    inlines = [PostImageInline]
+class MarkdownModelAdmin(admin.ModelAdmin):
+    inlines = [MarkdownImageInline,]
 
 
 
-class TitledBasicPostAdmin(admin.ModelAdmin):
-    fields = ('title', 'body_markdown')
-    inlines = [PostImageInline]
-
-
-
-admin.site.register(BasicPost, BasicPostAdmin)
-admin.site.register(TitledBasicPost, TitledBasicPostAdmin)
+admin.site.register(MarkdownModel, MarkdownModelAdmin)
