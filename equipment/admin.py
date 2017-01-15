@@ -8,6 +8,7 @@ class GalleryImageInline(admin.StackedInline):
 
 
 class EquipmentAdmin(admin.ModelAdmin):
+    fields = ['position', 'name', 'short_desc', 'markdown', 'thumbnail']
     inlines = [GalleryImageInline,]
 
 
