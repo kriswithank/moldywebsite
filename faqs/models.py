@@ -1,8 +1,5 @@
-from common.models import TitledBasicPost
+from common.models import MarkdownModel
 from django.db import models
-
-
-DEFAULT_FAQ_CATEGORY = 1
 
 
 
@@ -29,17 +26,19 @@ class FaqCategory(models.Model):
 
 
 
-
-class Faq(TitledBasicPost):
+class Faq(MarkdownModel):
     """
     A class model for a frequently asked question, extends TitledBasicPost.
 
     Attributes:
+        title - The title of the Faq.
+
         position - Determines the order in which to display the faqs on the page.
                    The faq with the lowest position value should be the first displayed,
                    largest position value should be the last displayed.
 
         category - The FaqCategory to which the faq belongs to.
     """
+    title = models.CharField(max_length=250)
     position = models.PositiveIntegerField()
-    category = models.ForeignKey(FaqCategory, on_delete=models.DO_NOTHING, default=DEFAULT_FAQ_CATEGORY)
+    category = models.ForeignKey(FaqCategory, on_delete=models.CASCADE)

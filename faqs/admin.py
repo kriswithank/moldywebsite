@@ -6,7 +6,7 @@ class FaqsInline(admin.StackedInline):
     model = Faq
     extra = 1
     ordering = ['position', 'title']
-    fields = ['position', 'title', 'body_markdown']
+    fields = ['position', 'title', 'markdown']
 
 class FaqCategoryAdmin(admin.ModelAdmin):
     fields = ('position', 'display_text')

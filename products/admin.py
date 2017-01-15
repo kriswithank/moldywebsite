@@ -9,6 +9,7 @@ class ProductGalleryImageInline(admin.StackedInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
+    fields = ['position', 'name', 'slug', 'completion_date', 'short_desc', 'markdown', 'thumbnail']
     inlines = [ProductGalleryImageInline,]
 
 

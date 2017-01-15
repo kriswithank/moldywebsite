@@ -1,6 +1,9 @@
+from common.models import GalleryImage, MarkdownModel
 from django.db import models
 
-class Product(models.Model):
+
+
+class Product(MarkdownModel):
     """
     A model describing projects that have been completed.
 
@@ -20,7 +23,6 @@ class Product(models.Model):
     slug = models.SlugField(unique=True)
     name = models.CharField(max_length=1000)
     short_desc = models.TextField()
-    long_desc = models.TextField()
     completion_date = models.DateField(null=True)
     thumbnail = models.ImageField(upload_to='products/images/thumbnails')
 
@@ -32,21 +34,8 @@ class Product(models.Model):
 
 
 
-class ProductGalleryImage(models.Model):
+class ProductGalleryImage(GalleryImage):
     """
-    A model for images that are to be displayed in a gallery for a specific product.
-
-    Attributes:
-        position - Determines the order in which to display the images in the gallery.
-                   The category with the lowest position value should be displayed first,
-                   the largest position value should be displayed last.
-        parent_product - The product to which the image belongs.
-        title - A title that might be displayed to users in the gallery.
-        info - A caption or other misc info that may be displayed to users in the gallery.
-        image - The image that is to be displayed.
+    Images to be displayed in a gallery for a product.
     """
-    position = models.PositiveIntegerField()
-    parent_product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    title = models.CharField(max_length=500)
-    info = models.TextField()
-    image = models.ImageField(upload_to='products/images/galleries')
+    parent = models.ForeignKey('Product', on_delete=models.CASCADE)
