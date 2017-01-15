@@ -34,7 +34,7 @@ class Product(MarkdownModel):
 
 
 
-class ProductGalleryImage(models.Model):
+class ProductGalleryImage(GalleryImage):
     """
     Images to be displayed in a gallery for a product.
     """
