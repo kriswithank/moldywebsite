@@ -34,7 +34,7 @@
     <section id="{{ category.display_text }}:{{ faq.title }}" class="stacked-section-no-thumnail child-section">
       <h3>{{ faq.title }}</h3>
       <div class="answer">
-        {{ faq.body_html|safe }}
+        {{ faq.html|safe }}
       </div>
     </section>
     {% endfor %}
