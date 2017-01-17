@@ -1,14 +1,36 @@
 {% load common_extras %}
 
-<header>
-    <a class="logo noselect" href="{% url 'home:index' %}">Molds America LLC</a>
-    <a class="menu-button" type="button" onclick="toggleMenu()"></a>
-    <nav class="nav-menu mobile-menu-inactive">
-        <a class="{% app_active request 'products' %}" href="{% url 'products:index' %}">Products</a>
-        <a class="{% app_active request 'equipment' %}" href="{% url 'equipment:index' %}">Equipment</a>
-        <a class="{% app_active request 'about' %}" href="{% url 'about:index' %}">About</a>
-        <a class="{% app_active request 'contact' %}" href="{% url 'contact:index' %}">Contact</a>
-        <a class="{% app_active request 'faqs' %}" href="{% url 'faqs:index' %}">FAQs</a>
-        <a class="{% app_active request 'reference' %}" href="{% url 'reference:index' %}">Reference</a>
-    </nav>
-</header>
+<!-- Note: We assume that bootstrap is loaded in the source template -->
+
+
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+
+        <!-- Uncollpasable content -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home:index' %}" >Molds America LLC</a>
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+
+
+        <!-- Collapsable content -->
+        <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="{% app_active request 'products' %}"><a href="{% url 'products:index' %}">Products</a></li>
+                <li class="{% app_active request 'equipment' %}"><a href="{% url 'equipment:index' %}">Equipment</a></li>
+                <li class="{% app_active request 'about' %}"><a href="{% url 'about:index' %}">About</a></li>
+                <li class="{% app_active request 'contact' %}"><a href="{% url 'contact:index' %}">Contact</a></li>
+                <li class="{% app_active request 'faqs' %}"><a href="{% url 'faqs:index' %}">FAQs</a></li>
+                <li class="{% app_active request 'reference' %}"><a href="{% url 'reference:index' %}">Reference</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
