@@ -42,12 +42,14 @@
 
 
     {% block content %}
-    <div class="content">
-        <div class="sidebar">
-            {% block sidebar %}{% endblock %}
-        </div>
-        <div class="main-content">
-            {% block main_content %}{% endblock %}
+    <div class="container">
+        <div class="content">
+            <div class="sidebar">
+                {% block sidebar %}{% endblock %}
+            </div>
+            <div class="main-content">
+                {% block main_content %}{% endblock %}
+            </div>
         </div>
     </div>
     {% endblock %}
