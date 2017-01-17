@@ -1,0 +1,14 @@
+{% load common_extras %}
+
+<header>
+    <a class="logo noselect" href="{% url 'home:index' %}">Molds America LLC</a>
+    <a class="menu-button" type="button" onclick="toggleMenu()"></a>
+    <nav class="nav-menu mobile-menu-inactive">
+        <a class="{% app_active request 'products' %}" href="{% url 'products:index' %}">Products</a>
+        <a class="{% app_active request 'equipment' %}" href="{% url 'equipment:index' %}">Equipment</a>
+        <a class="{% app_active request 'about' %}" href="{% url 'about:index' %}">About</a>
+        <a class="{% app_active request 'contact' %}" href="{% url 'contact:index' %}">Contact</a>
+        <a class="{% app_active request 'faqs' %}" href="{% url 'faqs:index' %}">FAQs</a>
+        <a class="{% app_active request 'reference' %}" href="{% url 'reference:index' %}">Reference</a>
+    </nav>
+</header>

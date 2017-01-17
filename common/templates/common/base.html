@@ -1,12 +1,13 @@
 {% load staticfiles %}
-{% load common_extras %}
+
+
 
 <!DOCTYPE html>
 <html>
 
 
 
-  <head>
+<head>
     <title>{% block title %}Molds America LLC{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
@@ -15,47 +16,36 @@
 
     <script type="text/javascript" src="{% static 'common/mobile_menu.js' %}"></script>
     {% block additional_scripts %}{% endblock %}
-  </head>
+</head>
 
 
 
-  <body>
-
-    <header>
-      <a class="logo noselect" href="{% url 'home:index' %}">Molds America LLC</a>
-      <a class="menu-button" type="button" onclick="toggleMenu()"></a>
-      <nav class="nav-menu mobile-menu-inactive">
-          <a class="{% app_active request 'products' %}" href="{% url 'products:index' %}">Products</a>
-          <a class="{% app_active request 'equipment' %}" href="{% url 'equipment:index' %}">Equipment</a>
-          <a class="{% app_active request 'about' %}" href="{% url 'about:index' %}">About</a>
-          <a class="{% app_active request 'contact' %}" href="{% url 'contact:index' %}">Contact</a>
-          <a class="{% app_active request 'faqs' %}" href="{% url 'faqs:index' %}">FAQs</a>
-          <a class="{% app_active request 'reference' %}" href="{% url 'reference:index' %}">Reference</a>
-      </nav>
-    </header>
+<body>
+    
+    {% include 'common/includes/navbar.html' %}
 
 
 
     {# To remove subheader, overwrite subheader. #}
     {% block subheader %}
     <div class="subheader">
-      {% block subheader_content %}{% endblock %}
+        {% block subheader_content %}{% endblock %}
     </div>
     {% endblock %}
 
 
     {% block content %}
     <div class="content">
-      <div class="sidebar">
-        {% block sidebar %}{% endblock %}
-      </div>
-      <div class="main-content">
-        {% block main_content %}{% endblock %}
-      </div>
+        <div class="sidebar">
+            {% block sidebar %}{% endblock %}
+        </div>
+        <div class="main-content">
+            {% block main_content %}{% endblock %}
+        </div>
     </div>
     {% endblock %}
 
-  </body>
+</body>
 
 
 
