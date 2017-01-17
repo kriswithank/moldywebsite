@@ -1,13 +1,13 @@
 {% extends "common/base.html" %}
 {% load static %}
 
-{% block additional_resources %}
-<link rel="stylesheet" type="text/css" href="{% static 'faqs/faq_style.css' %}">
-{% endblock %}
+
 
 {% block subheader_content %}
 <a href="{% url 'faqs:index' %}">Frequently Asked Questions <small>(and answers).</small></a>
 {% endblock %}
+
+
 
 {% block sidebar %}
 <h2>Jump to...</h2>
@@ -25,6 +25,8 @@
 {% endfor %}
 </ul>
 {% endblock %}
+
+
 
 {% block main_content %}
 {% for category in faq_categories %}

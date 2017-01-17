@@ -1,14 +1,13 @@
 {% extends "common/base.html" %}
-
 {% load staticfiles %}
 
-{% block additional_resources %}
-<link rel="stylesheet" type="text/css" href="{% static 'about/about_style.css' %}">
-{% endblock %}
+
 
 {% block subheader_content %}
 <a href="{% url 'about:index' %}">Who is Moldy Company Inc.?</a>
 {% endblock %}
+
+
 
 {% block main_content %}
 {% for section in sections %}

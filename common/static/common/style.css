@@ -306,3 +306,73 @@ header {
   user-select: none;           /* Non-prefixed version, currently
                                   not supported by any browser */
 }
+
+
+
+
+
+/* Condencing stylesheets down into one.
+-----------------------------------------------------------------------------------*/
+
+/* From about. */
+section .content {
+  display: block;
+}
+
+/* From equipment. */
+.main-content .item .thumbnail {
+  display: inline-block;
+  width: 30%;
+}
+.main-content .item .content {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+.main-content .item .content * {
+  display: block;
+}
+
+/* From faqs. */
+.sidebar ul {
+  list-style-type: none;
+}
+.sidebar > ul {
+  padding-top: 20px;
+}
+.sidebar li {
+  padding-bottom: 5px;
+}
+.sidebar .category > a {
+  color: #431F73;
+  font-weight: bold;
+}
+.sidebar .category > a:hover {
+  color: #AD85E6;
+}
+.sidebar .faq {
+  font-size: 15px;
+}
+.sidebar .faq a {
+  color: inherit;
+}
+.sidebar .faq > a:hover {
+  color: #3C1472;
+}
+
+/* From products. */
+img {
+  display: inline-block;
+  width: 30%;
+}
+.item .content {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+}
+.item .content * {
+  display: block;
+}
+.content {
+  text-align: left;
+}

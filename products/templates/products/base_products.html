@@ -1,13 +1,13 @@
 {% extends "common/base.html" %}
 {% load static %}
 
-{% block additional_resources %}
-<link rel="stylesheet" type="text/css" href="{% static 'products/products_style.css' %}">
-{% endblock %}
+
 
 {% block subheader_content %}
 <a href="{% url 'products:index' %}">Look over our past work.</a>
 {% endblock %}
+
+
 
 {% block main_content %}
 {% for product in products %}
