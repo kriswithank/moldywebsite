@@ -3,6 +3,18 @@
 
 
 
+{% block additional_resources %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        // Activate first item in carousel.
+        $('.carousel .item').first().addClass('active');
+        $('.carousel .carousel-indicators li').first().addClass('active');
+    });
+</script>
+{% endblock %}
+
+
+
 {% block subheader_content %}
 <a href="{% url 'products:index' %}">Look over our past work.</a>
 {% endblock %}
@@ -10,23 +22,40 @@
 
 
 {% block main_content %}
-<h1 class="title">
-    {{ product.name }}
-</h1>
+
+<h1>{{ product.name }}</h1>
 
 <div>
     {{ product.html|safe }}
 </div>
 
-<div class="gallery">
-    {% for image in product.productgalleryimage_set.all %}
-    <div class="entry">
-        <img src="{{ image.image.url }}" alt="{{ image.title }}">
-        <div class="caption">
-            <h5>{{ image.title }}</h5>
-            <div class="info">{{ image.info }}</div>
+<div id="gallery-carousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        {% for image in product.productgalleryimage_set.all %}
+        <li data-target="#gallery-carousel" data-slide-to="{{ forloop.counter|add:'-1' }}"></li>
+        {% endfor %}
+    </ol>
+
+    <!-- Slides -->
+    <div class="carousel-inner" role="listbox">
+        {% for image in product.productgalleryimage_set.all %}
+        <div class="item">
+            <img src="{{ image.image.url }}" alt="{{ image.title }}">
+            <div class="carousel-caption">
+                <h3>{{ image.title }}</h3>
+                <p>{{ image.info }}</p>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#gallery-carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" href="#gallery-carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
 </div>
 {% endblock %}
