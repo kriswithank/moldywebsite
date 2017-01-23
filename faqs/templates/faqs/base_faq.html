@@ -18,7 +18,7 @@
     <a href="#{{ category.display_text }}">{{ category.display_text }}</a>
     <ul>
     {% for faq in category.faqs %}
-      <li class="faq child-section"><a href="#{{ category.display_text }}:{{ faq.title }}">{{ faq.question_text }}</a></li>
+      <li class="faq child-section"><a href="#{{ category.display_text }}:{{ faq.title }}">{{ faq.title }}</a></li>
     {% endfor %}
     </ul>
   </li>
