@@ -18,12 +18,27 @@ src:
 
 
 
-/* Color and font styling.
+/* Basic styling.
 -----------------------------------------------------------------------------------*/
 body {
   font-family: 'Open Sans', sans-serif;
 }
+.page-header {
+    border: 0px; /* Overwrite bootstrap default. */
+}
 
+
+
+
+
+/* Gallery styling.
+-----------------------------------------------------------------------------------*/
+.gallery-entry {
+    background-color: #D7C1DE;
+}
+.gallery-entry img {
+    width: 100%;
+}
 
 
 

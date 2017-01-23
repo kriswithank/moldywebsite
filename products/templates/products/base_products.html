@@ -10,17 +10,17 @@
 
 
 {% block main_content %}
-{% for product in products %}
-<div class="item">
-<a href="{% url 'products:detail' product.slug %}">
-  <img class="thumbnail" src="{{ product.thumbnail.url }}" alt="{{ product.name }} Thumbnail"/>
-  <div class="content">
-    <h3 class="title">{{ product.name }}</h3>
-    <div class="overview">
-      {{ product.short_desc }}
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 gallery-entry">
+        <a href="{% url 'products:detail' product.slug %}">
+            <h3>{{ product.name }}</h3>
+            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }} Thumbnail"/>
+            <div class="caption">
+                {{ product.short_desc }}
+            </div>
+        </a>
     </div>
-  </div>
-</a>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
